@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import {Test} from "lib/forge-std/src/Test.sol";
+import {Test} from "forge-std/Test.sol";
 import {Treasury} from "../src/treasury/Treasury.sol";
 import {ITreasury} from "../src/interfaces/ITreasury.sol";
 

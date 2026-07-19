@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import {Test} from "lib/forge-std/src/Test.sol";
+import {Test} from "forge-std/Test.sol";
 import {GovernanceToken} from "../src/token/GovernanceToken.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
