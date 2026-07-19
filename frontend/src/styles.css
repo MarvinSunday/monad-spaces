@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #0e1013;
+  --panel: #161923;
+  --panel-border: #262b3a;
+  --text: #e7e6ea;
+  --text-dim: #8b8fa3;
+  --accent: #8a6ff9;
+  --accent-dim: #5b4bab;
+  --ok: #4ade80;
+  --warn: #fbbf24;
+  --danger: #f87171;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --sans: "Inter", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  gap: 16px;
+}
+
+.app-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.app-title .chain-tag {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  padding: 3px 9px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+button {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  color: var(--text);
+  padding: 9px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--accent-dim);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0e1013;
+}
+
+button.primary:hover:not(:disabled) {
+  background: #9a82ff;
+}
+
+button.danger {
+  color: var(--danger);
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.panel h2 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 14px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.field label {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.field input,
+.field textarea,
+.field select {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  background: #0e1013;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 8px 10px;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.field-row {
+  display: flex;
+  gap: 12px;
+}
+
+.field-row .field {
+  flex: 1;
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+.addr {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.muted {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.error-text {
+  color: var(--danger);
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.status-line {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  margin-top: 10px;
+}
+
+/* proposal lifecycle indicator - a real ordered sequence, so numbering
+   the steps actually encodes information here */
+.lifecycle {
+  display: flex;
+  gap: 4px;
+  margin: 10px 0 14px;
+}
+
+.lifecycle-step {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--panel-border);
+}
+
+.lifecycle-step.done {
+  background: var(--accent);
+}
+
+.lifecycle-step.failed {
+  background: var(--danger);
+}
+
+.state-pill {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.state-pending,
+.state-active {
+  background: rgba(138, 111, 249, 0.15);
+  color: var(--accent);
+}
+
+.state-succeeded,
+.state-queued,
+.state-executed {
+  background: rgba(74, 222, 128, 0.12);
+  color: var(--ok);
+}
+
+.state-defeated,
+.state-cancelled,
+.state-expired {
+  background: rgba(248, 113, 113, 0.12);
+  color: var(--danger);
+}
+
+.proposal-card {
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.proposal-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.proposal-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.vote-tally {
+  display: flex;
+  gap: 16px;
+  margin: 10px 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
+.vote-tally span.for { color: var(--ok); }
+.vote-tally span.against { color: var(--danger); }
+.vote-tally span.abstain { color: var(--text-dim); }
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-dim);
+}
